@@ -14,7 +14,7 @@ Follow these steps to get the Django project up and running on your local machin
 1. Clone the repository:
 
     ```bash
-    git clone [https://github.com/AhteshamUddowla/Asset-Tracker.git](https://github.com/AhteshamUddowla/Project-Management-App.git)
+    git clone https://github.com/AhteshamUddowla/Project-Management-App.git
     ```
 
 2. Install dependencies:
