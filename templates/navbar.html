@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary m-3 mb-4 rounded">
+    <div class="container-fluid">
+      <a class="navbar-brand text-primary" href="{% url 'home' %}"><h3>Project Management App</h3></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active text-primary fs-5" aria-current="page" href="{% url 'project-list' %}">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-primary fs-5" aria-current="page" href="{% url 'task-list' %}">Task</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-light fs-5" aria-current="page">User: {{user.username}}</a>
+          </li>
+          <li class="nav-item">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link text-decoration-none fs-5">Logout</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-primary" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-primary" href="{% url 'signup' %}">Signup</a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

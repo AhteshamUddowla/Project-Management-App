@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+  <div class="bg-secondary p-2 m-3 mb-4 rounded d-flex justify-content-between align-items-center">
+    <h3 class="text-light">Projects</h3>
+    <a href="{% url 'project-create' %}" class="btn btn-primary">Create New Project</a>
+  </div>
+
+  <ol class="list-group list-group-numbered m-3">
+    {% for project in projects %}
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">
+          <a class="text-decoration-none" href="{% url 'project-detail' project.id %}">{{ project.name }}</a>
+        </div>
+      </div>
+      <div>
+        <span class="badge bg-primary rounded-pill">
+          <a class="text-light text-decoration-none" href="{% url 'project-update' project.id %}">Update</a>
+        </span>
+        <span class="badge bg-primary rounded-pill">
+          <a class="text-light text-decoration-none" href="{% url 'project-delete' project.id %}">Delete</a>
+        </span>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+  
+{% endblock %}

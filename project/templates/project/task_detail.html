@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+  <div class="card m-3">
+    <div class="card-body">
+      <h3 class="card-title">{{ task.title }}</h3>
+      <p class="card-text">{{ task.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"> <b>Status:</b> {{ task.status }}</li>
+      <li class="list-group-item"> <b>Priority:</b> {{ task.priority }}</li>
+      <li class="list-group-item"> <b>Assigned to:</b> {{ task.assigned_to }}</li>
+      <li class="list-group-item"> <b>Due date:</b> {{ task.due_date }}</li>
+    </ul>
+  </div>
+
+  <div class="bg-secondary p-2 m-3 mb-4 rounded d-flex justify-content-between align-items-center">
+    <h3 class="text-light">Comments</h3>
+    <a href="{% url 'comment-create' task.id %}" class="btn btn-primary">Add Comment</a>
+  </div>
+
+  {% for comment in task.comments.all %}
+  <div class="card m-3">
+    <div class="card-header">
+      <b>{{ comment.user.username }}:</b> {{ comment.content }}
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
