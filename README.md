@@ -42,3 +42,9 @@ Follow these steps to get the Django project up and running on your local machin
     ```
 
 6. Access the project in your web browser at `http://localhost:8000`.
+
+# API Endpoints
+
+## User Endpoints
+### Register User 
+
