@@ -225,7 +225,7 @@ Authorization: Bearer youraccesstoken
 - **Response:** `204 No Content`
 
 ## Task Endpoints
-### Task List
+### List Task 
 - **URL:** http://localhost:8000/api/projects/{project_id}/tasks/
 - **Method:** `GET`
 - **Description:** Retrieve a list of all tasks in a project.
@@ -328,7 +328,7 @@ Authorization: Bearer youraccesstoken
 - **Response:** `204 No Content`
 
 ## Comment Endpoints
-### Comment List
+### List Comment 
 - **URL:** http://localhost:8000/api/tasks/{task_id}/comments/
 - **Method:** `GET`
 - **Description:** Retrieve a list of all comments on a task.
@@ -372,15 +372,15 @@ Authorization: Bearer youraccesstoken
 - **Method:** `GET`
 - **Description:** Retrieve details of a specific comment.
 - **Response:**
-  ```bash
-     {
+    ```bash
+    {
         "id": 1,
         "content": "This is a comment",
         "user": 1,
         "task": 1,
         "created_at": "2024-06-29T00:00:00Z"
-    }
-  ```
+   }
+   ```
   
 ### Update Comment
 - **URL:** http://localhost:8000/api/comments/{id}/
@@ -393,7 +393,7 @@ Authorization: Bearer youraccesstoken
     }
     ```
 - **Response:**
-  ```bash
+    ```bash
     {
         "id": 1,
         "content": "Updated comment",
@@ -401,7 +401,7 @@ Authorization: Bearer youraccesstoken
         "task": 1,
         "created_at": "2024-06-29T00:00:00Z"
     }
-  ```
+    ```
 
 ### Delete Comment
 - **URL:** http://localhost:8000/api/comments/{id}/
