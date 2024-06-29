@@ -117,7 +117,7 @@ Authorization: Bearer youraccesstoken
 - **URL:** http://localhost:8000/api/users/{id}/
 - **Method:** `PUT`, `PATCH`
 - **Description:** Update user details.
-- **Request Body:**
+- **Request Body (example for PATCH):**
     ```bash
     {
         "first_name": "UpdatedName"
@@ -182,4 +182,231 @@ Authorization: Bearer youraccesstoken
     "created_at": "2024-06-28T18:24:40.798356Z"
   }
   ```
+
+### Retrieve Project
+- **URL:** http://localhost:8000/api/projects/{id}/
+- **Method:** `GET`
+- **Description:** Retrive a project.
+- **Response:**
+  ```bash
+  {
+    "id": 2,
+    "name": "New Project",
+    "description": "New Project Description",
+    "owner": 1,
+    "created_at": "2024-06-28T18:57:18.798356Z"
+  }
+  ```
+  
+### Update Project
+- **URL:** http://localhost:8000/api/projects/{id}/
+- **Method:** `PUT`, `PATCH`
+- **Description:** Update project details.
+- **Request Body (example for PATCH):**
+    ```bash
+    {
+        "name": "New Project (Updated)"
+    }
+    ```
+- **Response:**
+  ```bash
+    {
+        "id": 2,
+        "name": "New Project (Updated)",
+        "description": "New Project Description",
+        "owner": 1,
+        "created_at": "2024-06-28T18:57:18.798356Z"
+    }
+  ```
+
+### Delete Project
+- **URL:** http://localhost:8000/api/project/{id}/
+- **Method:** `DELETE`
+- **Description:** Delete a project.
+- **Response:** `204 No Content`
+
+## Task Endpoints
+### Task List
+- **URL:** http://localhost:8000/api/projects/{project_id}/tasks/
+- **Method:** `GET`
+- **Description:** Retrieve a list of all tasks in a project.
+- **Response:**
+  ```bash
+  [
+    {
+        "id": 1,
+        "title": "Task 1",
+        "description": "Task 1 Description",
+        "status": "To Do",
+        "priority": "High",
+        "assigned_to": 1,
+        "project": 1,
+        "created_at": "2024-06-29T05:02:33.513437Z",
+        "due_date": "2024-06-29T00:00:00Z"
+    },
+    ...
+  ]
+  ```
+
+### Create Task
+- **URL:** http://localhost:8000/api/projects/{project_id}/tasks/
+- **Method:** `POST`
+- **Description:** Create a new task in a project.
+- **Request Body:**
+  ```bash
+  {
+    "title": "Task 2",
+    "description": "Task 2 description",
+    "status": "To Do",
+    "priority": "High",
+    "assigned_to": "1",
+    "due_date": "2024-06-29T00:00:00Z"
+  }
+  ```
+- **Response:**
+  ```bash
+  {
+    "id": 2,
+    "title": "Task 2",
+    "description": "Task 2 description",
+    "status": "To Do",
+    "priority": "High",
+    "assigned_to": 1,
+    "project": 1,
+    "created_at": "2024-06-29T05:42:34.729806Z",
+    "due_date": "2024-06-29T00:00:00Z"
+  }
+  ```
+
+### Retrieve Task
+- **URL:** http://localhost:8000/api/tasks/{id}/
+- **Method:** `GET`
+- **Description:** Retrieve details of a specific task.
+- **Response:**
+  ```bash
+  {
+    "id": 2,
+    "title": "Task 2",
+    "description": "Task 2 description",
+    "status": "To Do",
+    "priority": "High",
+    "assigned_to": 1,
+    "project": 1,
+    "created_at": "2024-06-29T05:42:34.729806Z",
+    "due_date": "2024-06-29T00:00:00Z"
+  }
+  ```
+  
+### Update Task
+- **URL:** http://localhost:8000/api/tasks/{id}/
+- **Method:** `PUT`, `PATCH`
+- **Description:** Update task details.
+- **Request Body (example for PATCH):**
+    ```bash
+    {
+        "status": "In Progress"
+    }
+    ```
+- **Response:**
+  ```bash
+    {
+        "id": 2,
+        "title": "Task 2",
+        "description": "Task 2 description",
+        "status": "In Progress",
+        "priority": "High",
+        "assigned_to": 1,
+        "project": 1,
+        "created_at": "2024-06-29T05:42:34.729806Z",
+        "due_date": "2024-06-29T00:00:00Z"
+    }
+  ```
+
+### Delete Project
+- **URL:** http://localhost:8000/api/tasks/{id}/
+- **Method:** `DELETE`
+- **Description:** Delete a task.
+- **Response:** `204 No Content`
+
+## Comment Endpoints
+### Comment List
+- **URL:** http://localhost:8000/api/tasks/{task_id}/comments/
+- **Method:** `GET`
+- **Description:** Retrieve a list of all comments on a task.
+- **Response:**
+  ```bash
+  [
+    {
+        "id": 1,
+        "content": "This is a comment",
+        "user": 1,
+        "task": 1,
+        "created_at": "2024-06-29T00:00:00Z"
+    },
+    ...
+  ]
+  ```
+
+### Create Comment
+- **URL:** http://localhost:8000/api/tasks/{task_id}/comments/
+- **Method:** `POST`
+- **Description:** Create a new comment on a task.
+- **Request Body:**
+  ```bash
+  {
+    "content": "This is a comment"
+  }
+  ```
+- **Response:**
+  ```bash
+  {
+    "id": 1,
+    "content": "This is a comment",
+    "user": 1,
+    "task": 1,
+    "created_at": "2024-06-29T00:00:00Z"
+  }
+  ```
+
+### Retrieve Comment
+- **URL:** http://localhost:8000/api/comments/{id}/
+- **Method:** `GET`
+- **Description:** Retrieve details of a specific comment.
+- **Response:**
+  ```bash
+     {
+        "id": 1,
+        "content": "This is a comment",
+        "user": 1,
+        "task": 1,
+        "created_at": "2024-06-29T00:00:00Z"
+    }
+  ```
+  
+### Update Comment
+- **URL:** http://localhost:8000/api/comments/{id}/
+- **Method:** `PUT`, `PATCH`
+- **Description:** Update comment details.
+- **Request Body (example for PATCH):**
+    ```bash
+    {
+        "content": "Updated comment"
+    }
+    ```
+- **Response:**
+  ```bash
+    {
+        "id": 1,
+        "content": "Updated comment",
+        "user": 1,
+        "task": 1,
+        "created_at": "2024-06-29T00:00:00Z"
+    }
+  ```
+
+### Delete Comment
+- **URL:** http://localhost:8000/api/comments/{id}/
+- **Method:** `DELETE`
+- **Description:** Delete a comment.
+- **Response:** `204 No Content`
   
