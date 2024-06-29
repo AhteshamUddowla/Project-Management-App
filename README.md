@@ -185,7 +185,7 @@ Authorization: Bearer youraccesstoken
 ### Retrieve Project
 - **URL:** http://localhost:8000/api/projects/{id}/
 - **Method:** `GET`
-- **Description:** Retrive a project.
+- **Description:** Retrieve details of a specific project.
 - **Response:**
   ```bash
   {
@@ -219,7 +219,7 @@ Authorization: Bearer youraccesstoken
   ```
 
 ### Delete Project
-- **URL:** http://localhost:8000/api/project/{id}/
+- **URL:** http://localhost:8000/api/projects/{id}/
 - **Method:** `DELETE`
 - **Description:** Delete a project.
 - **Response:** `204 No Content`
