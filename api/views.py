@@ -36,8 +36,10 @@ class ProjectListCreateView(generics.ListCreateAPIView):
     serializer_class = ProjectSerializer
     permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
 
 class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
@@ -45,15 +47,14 @@ class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
 
 class TaskListCreateView(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        return Task.objects.filter(project_id=self.kwargs['project_id'])
-
-    def perform_create(self, serializer):
-        project = Project.objects.get(id=self.kwargs['project_id'])
-        serializer.save(project=project)
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['project_id'] = self.kwargs['project_id']
+        return context
 
 class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
