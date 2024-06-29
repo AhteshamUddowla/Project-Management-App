@@ -308,17 +308,17 @@ Authorization: Bearer youraccesstoken
     ```
 - **Response:**
   ```bash
-    {
-        "id": 2,
-        "title": "Task 2",
-        "description": "Task 2 description",
-        "status": "In Progress",
-        "priority": "High",
-        "assigned_to": 1,
-        "project": 1,
-        "created_at": "2024-06-29T05:42:34.729806Z",
-        "due_date": "2024-06-29T00:00:00Z"
-    }
+  {
+      "id": 2,
+      "title": "Task 2",
+      "description": "Task 2 description",
+      "status": "In Progress",
+      "priority": "High",
+      "assigned_to": 1,
+      "project": 1,
+      "created_at": "2024-06-29T05:42:34.729806Z",
+      "due_date": "2024-06-29T00:00:00Z"
+  }
   ```
 
 ### Delete Project
