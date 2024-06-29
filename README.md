@@ -142,7 +142,7 @@ Authorization: Bearer youraccesstoken
 - **Response:** `204 No Content`
 
 ## Project Endpoints
-### Project List
+### List Project 
 - **URL:** http://localhost:8000/api/projects/
 - **Method:** `GET`
 - **Description:** Retrieve a list of all projects.
@@ -168,8 +168,7 @@ Authorization: Bearer youraccesstoken
   ```bash
   {
     "name": "New Project",
-    "description": "New Project Description",
-    "owner": "1"
+    "description": "New Project Description"
   }
   ```
 - **Response:**
