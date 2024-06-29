@@ -209,13 +209,13 @@ Authorization: Bearer youraccesstoken
     ```
 - **Response:**
   ```bash
-    {
-        "id": 2,
-        "name": "New Project (Updated)",
-        "description": "New Project Description",
-        "owner": 1,
-        "created_at": "2024-06-28T18:57:18.798356Z"
-    }
+  {
+      "id": 2,
+      "name": "New Project (Updated)",
+      "description": "New Project Description",
+      "owner": 1,
+      "created_at": "2024-06-28T18:57:18.798356Z"
+  }
   ```
 
 ### Delete Project
